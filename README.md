@@ -16,5 +16,8 @@
 
 ![image-20210409213400827](C:\Users\yu\AppData\Roaming\Typora\typora-user-images\image-20210409213400827.png)s
 
+6 新增员工信息功能
 
+![image-20210409225338920](C:\Users\yu\AppData\Roaming\Typora\typora-user-images\image-20210409225338920.png)
 
+![image-20210409225411785](C:\Users\yu\AppData\Roaming\Typora\typora-user-images\image-20210409225411785.png)

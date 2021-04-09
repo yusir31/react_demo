@@ -15,7 +15,7 @@
     "**/node_modules": true,
     "**/tsconfig.json": true,
     "**/typings.d.ts": true,
-    "**/package.json": true,
-    "**/yarn.lock": true
+    "**/package.json": false,
+    "**/yarn.lock": false
   }
 }

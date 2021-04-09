@@ -36,7 +36,7 @@ function ListPage({ employee, dispatch }) {
 
     // const [content, setContent] = useState(items);
 
-    function deleteInfo(name) {
+    function deleteInfo(key) {
 
         // console.log(name, '2');
         // const newValue = content.filter(item => item.name !== name);
@@ -44,9 +44,9 @@ function ListPage({ employee, dispatch }) {
 
 
         dispatch({
-            type: 'employee/deleteEmployeeByName', //namespace为employee 下面的 方法名为deleteEmployeeByName
+            type: 'employee/deleteEmployeeByKey', //namespace为employee 下面的 方法名为deleteEmployeeByName
             payload: {//参数
-                name: name
+                key: key
             },
         })
 
@@ -55,6 +55,12 @@ function ListPage({ employee, dispatch }) {
 
 
     const columns = [
+        {
+            title: 'Key',
+            dataIndex: 'key',
+            key: 'key',
+        },
+
         {
             title: 'Name',
             dataIndex: 'name',
@@ -97,7 +103,7 @@ function ListPage({ employee, dispatch }) {
             render: (text, record) => (
                 <Space size="middle">
                     <a >Edit</a>
-                    <a onClick={() => deleteInfo(record.name)}>Delete</a>
+                    <a onClick={() => deleteInfo(record.key)}>Delete</a>
                 </Space>
             ),
         },

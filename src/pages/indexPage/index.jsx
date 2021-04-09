@@ -15,7 +15,7 @@ export default function indexPage({ children }) {
                 <Link to="/">To Index</Link>
         </Menu.Item>
             <Menu.Item key="app"  icon={<AppstoreOutlined />}>
-                <Link to="/employee">To Employee</Link>
+                <Link to="/employee">To EmployeeAdd</Link>
         </Menu.Item>
         
             <Menu.Item key="alipay">

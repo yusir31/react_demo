@@ -35,10 +35,17 @@ export default {
     //   return employees;
     // },
 
-    deleteEmployeeByName(state, { payload }) {
-      const { name: name } = payload;
-
-      return state.filter((e) => e.name !== name);
+    deleteEmployeeByKey(state, { payload }) {
+      const { key: key } = payload;
+      console.log(key);
+      return state.filter((e) => e.key !== key);
+    },
+    addUser(state, { payload }) {
+      const { values } = payload;
+     
+      // console.log(state.push(values));
+      state.push(values);
+      return state
     },
   },
 
@@ -46,17 +53,17 @@ export default {
   effects: {
 
     //接口写法
-    *getAll(_, { call, put }) {
-      const response = yield call(request.get, '/api/employees');
+    // *getAll(_, { call, put }) {
+    //   const response = yield call(request.get, '/api/employees');
 
-      //回调函数
-      yield put({
-        type: 'update',
-        payload: {
-          employees: response,
-        },
-      });
-    },
+    //   //回调函数
+    //   yield put({
+    //     type: 'update',
+    //     payload: {
+    //       employees: response,
+    //     },
+    //   });
+    // },
     *deleteByName(name, { call, put }) {
       const response = yield call(request.get, '/api/employee/deleteByName',name);
 
