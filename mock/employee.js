@@ -1,16 +1,36 @@
+
+
 const employees = [
   {
-    id: '001',
-    name: '张三',
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+    tags: ['nice', 'developer'],
   },
   {
-    id: '002',
-    name: '李四',
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+    tags: ['loser'],
+  },
+  {
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+    tags: ['cool', 'teacher'],
   },
 ];
+
 
 export default {
   'GET /api/employees': (_, response) => {
     response.send(employees);
+  },
+  'GET /api/employee/deleteByName': (name, response) => {
+    console.log(name);
+    response.send(employees.filter(list => { list.name != name }));
   },
 };

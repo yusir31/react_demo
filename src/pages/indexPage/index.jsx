@@ -4,6 +4,7 @@ import styles from './index.less';
 import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
+
 export default function indexPage({ children }) {
     const { SubMenu } = Menu;
     // const { current } = this.state;
@@ -14,7 +15,7 @@ export default function indexPage({ children }) {
                 <Link to="/">To Index</Link>
         </Menu.Item>
             <Menu.Item key="app"  icon={<AppstoreOutlined />}>
-                <Link to="/employee">To Emplocdyee</Link>
+                <Link to="/employee">To Employee</Link>
         </Menu.Item>
         
             <Menu.Item key="alipay">

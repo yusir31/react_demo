@@ -5,43 +5,51 @@ import IndexPage from '../indexPage'
 
 import { useState, useEffect } from "react";
 
-
-const items = [
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
-];
-
-
-
-export default function ListPage() {
+import { connect } from 'dva';
+// const items = [
+//     {
+//         key: '1',
+//         name: 'John Brown',
+//         age: 32,
+//         address: 'New York No. 1 Lake Park',
+//         tags: ['nice', 'developer'],
+//     },
+//     {
+//         key: '2',
+//         name: 'Jim Green',
+//         age: 42,
+//         address: 'London No. 1 Lake Park',
+//         tags: ['loser'],
+//     },
+//     {
+//         key: '3',
+//         name: 'Joe Black',
+//         age: 32,
+//         address: 'Sidney No. 1 Lake Park',
+//         tags: ['cool', 'teacher'],
+//     },
+// ];
 
 
-    const [content, setContent] = useState(items);
+function ListPage({ employee, dispatch }) {
+
+
+    // const [content, setContent] = useState(items);
 
     function deleteInfo(name) {
 
-        console.log(name, '2');
-        const newValue = content.filter(item => item.name !== name);
-        setContent(newValue);
+        // console.log(name, '2');
+        // const newValue = content.filter(item => item.name !== name);
+        // setContent(newValue);
+
+
+        dispatch({
+            type: 'employee/deleteEmployeeByName', //namespace为employee 下面的 方法名为deleteEmployeeByName
+            payload: {//参数
+                name: name
+            },
+        })
+
 
     }
 
@@ -97,18 +105,19 @@ export default function ListPage() {
 
     //生命周期函数
     useEffect(() => {
+        console.log(employee);
+        // dispatch({
+        //     type: 'employee/getAll',
+        // });
         // console.log("content 变了");
-    }, [content]); //[]里面是写监听的 监听变量
-
-
+    }, [employee]); //[]里面是写监听的 监听变量
 
     return (
 
-
         <div>
             <IndexPage></IndexPage>
-            <Table columns={columns} dataSource={content} />
+            <Table columns={columns} dataSource={employee} />
         </div>
-
     );
 }
+export default connect(({ employee }) => ({ employee }))(ListPage);
